@@ -12,8 +12,10 @@ const moveLeft = keyframes`
 const Image = styled.img`
   transition: transform 0.5s ease-in-out;
   align-self: center;
-  justify-self: start;
-  
+  justify-self: ;
+  width: 30%;
+  heigth: 30%;
+
   &:hover {
     transform: translateX(-100%);
     animation: ${moveLeft} 1s ease-in-out;
@@ -21,31 +23,35 @@ const Image = styled.img`
 `;
 
 const Container = styled.div`
-  @media(max-width: 640px) {
+  @media (max-width: 640px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     height: 100vh;
-
   }
-
 `;
 
 const AsideContainer = styled.aside`
-@media (max-width: 640px) {
-    display: none;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  @media (max-width: 640px) {
+    /* display: none; */
+
   }
   @media (max-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    display: none;
+    /* display: none; */
   }
 
   /* @media (max-width: 1024px) {
     display: none;
   } */
-  
 `;
 
 const Main = styled.main`
@@ -57,14 +63,13 @@ const Main = styled.main`
   align-items: center;
   background: #fafafa;
   border-radius: 40px 0 40px 0;
-
 `;
 
 const Title = styled.h1`
-  font-weight: 600;
+  font-weight: 900;
   margin: 0;
   line-height: 1.15;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: left;
   text-decoration: none;
   color: #1a1a1a;
@@ -90,13 +95,13 @@ const Button = styled.button`
 
   &:hover {
     background: #3862d4;
-    }
-
+  }
 `;
 
 const Description = styled.p`
-  text-align: left;
-  line-height: 1;
+  width: 50%;
+  text-align: center;
+  line-height: 1.5;
   font-size: 1rem;
   color: #777777;
 `;
@@ -109,6 +114,50 @@ const CodeTag = styled.code`
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 `;
+const Titleimg = styled.h1`
+  text-align: left;
+  color: #0d2870;
+  line-height: 1;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
 
+  @media (max-width: 640px) {
+    /* display: none; */
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    /* display: none; */
+  }
+`;
+const Descriptionimg = styled.p`
+  text-align: left;
+  color: #fff;
+  font-weight: 500;
 
-export { Container, Main, Title, Description, CodeTag, Button, AsideContainer, Image  };
+  @media (max-width: 640px) {
+    /* display: none; */
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    text-align: center;
+    /* display: none; */
+  }
+`;
+export {
+  Container,
+  Main,
+  Title,
+  Description,
+  CodeTag,
+  Button,
+  AsideContainer,
+  Image,
+  Titleimg,
+  Descriptionimg,
+};

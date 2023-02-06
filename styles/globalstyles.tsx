@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -6,10 +6,12 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primary};
     padding: 0;
     margin: 0;
-    font-family: 
-      Roboto,  sans-serif;
   }
-
+  const poppins = Poppis({
+    weight: ['400', '700', '900'],
+    style: ['normal', 'italic'],
+    subsets: ['latin'],
+})
   a {
     color: inherit;
     text-decoration: none;
@@ -18,5 +20,4 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-`
-
+`;

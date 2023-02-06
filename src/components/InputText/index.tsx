@@ -2,12 +2,12 @@ import React, { InputHTMLAttributes } from "react";
 import { Input } from "../InputText/styles";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  Label: string;
 }
 
-export const InputText = ({ Label, ...props }) => {
+export const InputText = ({ Label, ...props }: Props) => {
   return (
-    <label className="flex flex-col m-5">
+    <label className="flex flex-col m-">
       <span>{Label}</span>
       <Input
         type="email"

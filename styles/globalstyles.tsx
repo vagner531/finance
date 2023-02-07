@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
-  const poppins = Poppis({
+  const roboto = Roboto({
     weight: ['400', '700', '900'],
     style: ['normal', 'italic'],
     subsets: ['latin'],

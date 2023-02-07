@@ -14,7 +14,7 @@ import {
 
 export const Register = () => {
   return (
-    <div className=" w-screen h-screen bg-gradient-to-r from-cyan-500 to-blue-500 ... flex justify-center">
+    <div className=" w-screen h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ... flex justify-center">
       <Container className="w-full h-full max-w-screen-xl grid grid-cols-2">
         <AsideContainer>
           <Image src="/hero-image.png" alt="" />
@@ -29,7 +29,7 @@ export const Register = () => {
           <Description>
             Crie sua conta para começar a controlar sua grana.
           </Description>
-          <form action="" className="flex flex-col w-full max-w-xs ">
+          <form action="" className="flex flex-col w-full max-w-xs gap-2">
             <InputText Label="Nome" type="password" />
             <InputText Label="E-mail" type="email" />
             <InputText Label="Senha" type="password" />

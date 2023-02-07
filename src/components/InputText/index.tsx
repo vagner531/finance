@@ -8,7 +8,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 export const InputText = ({ Label, ...props }: Props) => {
   return (
     <label className="flex flex-col m-">
-      <span>{Label}</span>
+      <span className="text-gray-500">{Label}</span>
       <Input
         type="email"
         {...props}

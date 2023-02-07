@@ -30,6 +30,11 @@ const Container = styled.div`
     align-items: center;
     height: 100vh;
   }
+  @media (max-width: 820px) {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+  }
 `;
 
 const AsideContainer = styled.aside`
@@ -39,14 +44,8 @@ const AsideContainer = styled.aside`
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  @media (max-width: 640px) {
-    /* display: none; */
-
-  }
-  @media (max-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    /* display: none; */
+  @media (max-width: 820px) {
+    width: 100%;
   }
 
   /* @media (max-width: 1024px) {
@@ -70,9 +69,15 @@ const Title = styled.h1`
   margin: 0;
   line-height: 1.15;
   font-size: 2rem;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   color: #1a1a1a;
+
+  @media (max-width: 820px) {
+    font-size: 1.5rem;
+    width: 80%;
+
+  }
 
   a {
     color: ${({ theme }) => theme.colors.secondary};
@@ -87,9 +92,10 @@ const Title = styled.h1`
 
 const Button = styled.button`
   color: #ffffff;
+  font-weight: 700;
   font-size: 1em;
-  margin: 1em;
-  padding: 1rem 0.5rem;
+  margin-top: 6px;
+  padding: 1rem 1.5rem;
   background: #4b74e7;
   border-radius: 9px;
 
@@ -104,6 +110,13 @@ const Description = styled.p`
   line-height: 1.5;
   font-size: 1rem;
   color: #777777;
+  @media (max-width: 820px) {
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
 `;
 const CodeTag = styled.code`
   background: #fafafa;
@@ -123,16 +136,18 @@ const Titleimg = styled.h1`
   margin-bottom: 1rem;
 
   @media (max-width: 640px) {
-    /* display: none; */
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
+    text-align: center;
   }
-  @media (max-width: 768px) {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    /* display: none; */
+  @media (max-width: 820px) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
   }
 `;
 const Descriptionimg = styled.p`
@@ -144,9 +159,13 @@ const Descriptionimg = styled.p`
     /* display: none; */
     text-align: center;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 820px) {
+    font-size: 0.8rem;
     text-align: center;
-    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
   }
 `;
 export {

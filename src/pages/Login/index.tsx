@@ -14,7 +14,7 @@ import {
 
 export const Login = () => {
   return (
-    <div className=" w-screen h-screen bg-gradient-to-r from-cyan-500 to-blue-500 ... flex justify-center">
+    <div className=" w-screen h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ... flex justify-center">
       <Container className="w-full h-full max-w-screen-xl grid grid-cols-2">
         <AsideContainer>
           <Image src="/hero-image.png" alt="" />
@@ -29,7 +29,7 @@ export const Login = () => {
         <Main className=" flex flex-col justify-center items-center gap-4">
           <Title>Acesse sua conta</Title>
           <Description>Organize seu dinheiro em tempo real. </Description>
-          <form action="" className="flex flex-col w-full max-w-xs ">
+          <form action="" className="flex flex-col w-full max-w-xs gap-2">
             <InputText Label="E-mail" type="email" />
             <InputText Label="Senha" type="password" />
             <Button>Login</Button>

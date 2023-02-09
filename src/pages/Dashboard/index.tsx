@@ -7,29 +7,53 @@ import {
   TransactionsTypeContainer,
 } from "./styles";
 import Modal from "react-modal";
-import React, { useState, FormEvent, useContext} from "react";
-import { TransactionsTable } from "./Historico";
-import { api } from "../../services/api";
+import React, { useState, FormEvent, useContext } from "react";
+
 import { TransactionsContext } from "../../TransactionsContext";
+import { TransactionsTable } from "./Historico";
 
 export const Dashboard = () => {
+  const { transactions, createTransaction } = useContext(TransactionsContext);
+
   const [title, setTitle] = useState("");
-  const [value, setValue] = useState(0);
-  const [category, setCategory] = useState('');
+  const [amount, setAmount] = useState(0);
+  const [category, setCategory] = useState("");
   const [type, setType] = useState("deposit");
 
-  function handleCreateNewTransaction(event: FormEvent) {
+  async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault();
 
-    const data = {
+    await createTransaction({
       title,
-      value,
+      amount,
       category,
       type,
-    };
+    });
 
-    api.post('/transactions', data)
+    setTitle('');
+    setAmount(0);
+    setCategory('');
+    setType('deposit');
+    handleCloseNewTransactionModal();
   }
+
+  const dashboard = transactions.reduce((acc, transaction) => {
+    if (transaction.type === 'deposit') {
+      acc.deposits += transaction.amount;
+      acc.total += transaction.amount;
+    } else {
+      acc.withdrwas += transaction.amount;
+      acc.total -= transaction.amount;
+    }
+
+    return acc;
+
+  }, {
+    deposits: 0,
+    withdrwas: 0,
+    total: 0,
+  })
+
 
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
     useState(false);
@@ -41,12 +65,6 @@ export const Dashboard = () => {
   function handleCloseNewTransactionModal() {
     setIsNewTransactionModalOpen(false);
   }
-
-  // ------------consumindo api-----------------
-      const transactions = useContext(TransactionsContext);
-
-      console.log(transactions);
-  // -------------------------------------------
 
   return (
     <div className="w-screen h-screen flex items-center flex-col bg-gradient-to-r from-rose-700 to-pink-600">
@@ -82,8 +100,8 @@ export const Dashboard = () => {
               <input
                 type="number"
                 placeholder="Valor"
-                value={value}
-                onChange={event => setValue(Number(event.target.value))}
+                value={amount}
+                onChange={(event) => setAmount(Number(event.target.value))}
               />
               <TransactionsTypeContainer>
                 <Radiobox
@@ -108,7 +126,7 @@ export const Dashboard = () => {
               <input
                 placeholder="Categoria"
                 value={category}
-                onChange={event => setCategory(event.target.value)}
+                onChange={(event) => setCategory(event.target.value)}
               />
               <button type="submit">Cadastrar</button>
             </ContainerF>
@@ -121,21 +139,31 @@ export const Dashboard = () => {
             <p>Entradas</p>
             <img src="/saida.svg" alt="" />
           </header>
-          <strong>R$1000,00</strong>
+          <strong> {new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(dashboard.deposits)}</strong>
         </div>
         <div>
           <header>
             <p>Saidas</p>
             <img src="/entrada.svg" alt="" />
           </header>
-          <strong>- R$1000,00</strong>
+          <strong>-
+          {new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(dashboard.withdrwas)}</strong>
         </div>
         <div className="highlight-background">
           <header>
             <p>Total</p>
             <img src="/total.svg" alt="" />
           </header>
-          <strong>R$1000,00</strong>
+          <strong>{new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(dashboard.total)}</strong>
         </div>
       </Maindash>
       <footer className="w-full mt-10 max-w-screen-lg border-red-700 content-start flex flex-col">

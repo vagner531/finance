@@ -1,33 +1,34 @@
 import React, { useContext } from "react";
-import { ContainerH } from "./styles";
 import { TransactionsContext } from "../../../TransactionsContext";
+import { ContainerF } from "./styles";
+
 
 export function TransactionsTable() {
- const { transactions } = useContext(TransactionsContext);
+  const { transactions } = useContext(TransactionsContext);
 
   return (
-    <ContainerH>
-      <table>
-        <thead>
+    <ContainerF className="table-responsive">
+      <table className="table-fixed">
+        <thead >
           <tr>
-            <th>Titulo</th>
-            <th>Valor</th>
-            <th>Categoria</th>
-            <th>Data</th>
+            <th className="w-1/2 px-2 py-2">Titulo</th>
+            <th className="w-1/2 px-2 py-2">Valor</th>
+            <th className="w-1/2 px-2 py-2">Categoria</th>
+            <th className="w-1/2 px-2 py-2">Data</th>
           </tr>
         </thead>
         <tbody>
           {transactions.map((transaction) => (
-            <tr key={transaction.id} className="">
-              <td>{transaction.title}</td>
-              <td className={transaction.type}>
+            <tr key={transaction.id}>
+              <td className="border px-2 py-2">{transaction.title}</td>
+              <td className="border px-2 py-2">
                 {new Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(transaction.amount)}
               </td>
-              <td>{transaction.category}</td>
-              <td>
+              <td className="border px-2 py-2">{transaction.category}</td>
+              <td className="border px-2 py-2">
                 {new Intl.DateTimeFormat("pt-BR").format(
                   new Date(transaction.createdAt)
                 )}
@@ -35,7 +36,7 @@ export function TransactionsTable() {
             </tr>
           ))}
         </tbody>
-      </table>
-    </ContainerH>
+        </table>
+    </ContainerF>
   );
 }

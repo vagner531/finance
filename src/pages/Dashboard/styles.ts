@@ -10,7 +10,8 @@ export const Buttondash = styled.button`
   border: 1px solid #fff;
 
   &:hover {
-    background: #3862d4;
+    background: #f59e0b;
+    color: #000;
   }
 `;
 
@@ -24,9 +25,12 @@ export const Buttonlog = styled.button`
   border: 1px solid #fff;
 
   &:hover {
-    background: #3862d4;
+    background: #f59e0b;
+    color: #000;
   }
 `;
+
+
 
 export const Maindash = styled.main`
   background: rgb(209 209 209 / 37%);
@@ -67,10 +71,16 @@ export const Maindash = styled.main`
     display: grid;
     grid-template-columns: 1fr;
   }
-  /* @media (max-width: 830px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  } */
+`;
+
+export const Containerv = styled.div`
+  
+
+  span {
+    @media (max-width: 390px) {
+    text-align: center;
+  }
+  }
 `;
 
 export const Buttonex = styled.button`
